@@ -1,0 +1,7 @@
+{
+  "name": "hollytime-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
