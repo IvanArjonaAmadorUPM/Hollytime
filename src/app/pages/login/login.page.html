@@ -27,6 +27,15 @@
                   </div>
                 </ng-container>
               </div>
+              
+              <div *ngIf="!emailExists" class="login-error">
+                <ng-container >
+                  <ion-icon class="login-error-icon" name="alert-circle-outline"></ion-icon>
+                  <div class="error_message">
+                    El correo o la contraseña no son correctos
+                  </div>
+                </ng-container>
+              </div>
 
               <ion-item>
                 <ion-icon name="lock-closed-outline"></ion-icon>

@@ -35,8 +35,17 @@ ion-content{
                         margin-left: 10px;
                     }
                 }
+                .login-error{
+                    display: flex;
+                }
+                .login-error-icon{
+                    color:red;
+                    margin-right: 5px;
+                }
                 .error_message{
                    color: red;
+                   font-size: 12px;
+
                 }
             }
         }

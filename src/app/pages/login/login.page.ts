@@ -28,9 +28,10 @@ export class LoginPage implements OnInit {
   }
 
   validationFormUser: FormGroup;
-
+  emailExists: boolean = true;
 
   ngOnInit() {
+
     this.validationFormUser = this.formbuilder.group({
       email: new FormControl('',Validators.compose([
         Validators.required,
@@ -48,7 +49,10 @@ export class LoginPage implements OnInit {
       const user = await this.authService.loginFireAuth(value);
       if(user){
         console.log(user)
+        this.emailExists = true;
         this.router.navigate(['/home']);
+      }else{
+        this.emailExists = false;
       }
     } catch (error) {
       console.log(error)

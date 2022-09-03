@@ -6,17 +6,28 @@ import { GoogleAuthProvider } from "firebase/auth";
 import * as firebase from 'firebase/compat';
 import { User } from '../shared/user.interface';
 import { FacebookAuthProvider } from "firebase/auth";
-
+import { Observable, of } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  public user$: Observable<User>;
 
   constructor(
     public auth: AngularFireAuth,
     private afs: AngularFirestore
-    ) { }
+    ) {
+      this.user$ = this.auth.authState.pipe(
+        switchMap((user) => {
+          if (user) {
+            return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
+          }
+          return of(null);
+        })
+      );
+     }
 
   
   async loginFireAuth(value): Promise<User> {
@@ -25,7 +36,7 @@ export class AuthService {
       this.updateUserData(user);
       return user;
       } catch (error) {
-      console.log('Error->', error);
+        console.log('Error->', error);
     }
   }
   
