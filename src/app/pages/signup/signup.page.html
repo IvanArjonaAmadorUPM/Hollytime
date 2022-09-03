@@ -1,0 +1,89 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaulthref="login" text="">
+  
+      </ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="container">
+  <ion-card class="header">
+    <ion-img class="logo" src="/assets/images/Logo-grande.png" alt="image">
+    </ion-img>
+    <ion-card-subtitle class="title">
+      Registrate para poder disfrutar una experiencia nueva de Alcalá
+    </ion-card-subtitle>
+  </ion-card>
+  <ion-card class="user-input">
+    <ion-card-content>
+      <form [formGroup]="validationFormUser" (ngSubmit)="registerUser(validationFormUser.value)">
+              <div class="wrap-together">
+                <div class="wrapfrom">
+                  
+                  <ion-item>
+                    <ion-icon name="mail-outline"></ion-icon>
+                    <ion-input placeholder="Introduce un email" type="text" name="email" formControlName="email"></ion-input>
+                  </ion-item>
+                  <div>
+                    <ng-container *ngFor="let validation of validationUserMessage.email">
+                      <div class="error_message" *ngIf="(validationFormUser.get('email').hasError(validation.type) && (validationFormUser.get('email').dirty))">
+                        {{validation.message}}
+                      </div>
+                    </ng-container>
+                  </div>
+
+                  <ion-item>
+                    <ion-icon name="lock-closed-outline"></ion-icon>
+                    <ion-input placeholder="Introduce una contraseña"  type="password" name="password" formControlName="password"></ion-input>
+                  </ion-item>   
+                  <div>
+                    <ng-container *ngFor="let validation of validationUserMessage.password">
+                      <div class="error_message" *ngIf="(validationFormUser.get('password').hasError(validation.type) && (validationFormUser.get('password').dirty))">
+                        {{validation.message}}
+                      </div>
+                    </ng-container>
+                  </div>
+
+                  <ion-item>
+                    <ion-icon name="lock-closed-outline"></ion-icon>
+                    <ion-input placeholder="Repite la contraseña"  type="password" name="passwordRepited" formControlName="passwordRepited"></ion-input>
+                  </ion-item>    
+                  <div>
+                    <ng-container *ngFor="let validation of validationUserMessage.passwordRepited">
+                      <div class="error_message" *ngIf="validationFormUser.hasError('notSame')">
+                        {{validation.message}}
+                      </div>
+                    </ng-container>
+                  </div>
+
+                </div>
+              </div>
+              <div class="sign-button-wrap">
+                <ion-button type="submit" shape="round" fill="solid" class="sign-button" [disabled]="!validationFormUser.valid">
+                  Registrarse
+                </ion-button>
+              </div>
+              <div class="social-btns">
+                <div class="text-tag">
+                  <ion-text>O registrate iniciando sesión en</ion-text>
+                </div>
+                <ion-button (click)="onFacebookButton()" fill="clear" class="facebookbtn ion-no-padding">
+                  <ion-img src="/assets/icon/facebook.png"></ion-img>
+                </ion-button>
+                <ion-button (click)="onGoogleButton()" fill="clear" class="googlebtn ion-no-padding">
+                  <ion-img src="/assets/icon/google.png"></ion-img>
+                </ion-button>
+              </div>
+              <div class="register-text">
+                <ion-text>¿Ya tienes cuenta? 
+                  <ion-button class="register-button" fill="clear" (click)="onSignInButton()">
+                    Inicia sesion 
+                  </ion-button> 
+                </ion-text>
+              </div>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
