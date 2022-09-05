@@ -29,7 +29,9 @@ export class AuthService {
       );
      }
 
-  
+  async getCurrentUser(){
+    return this.auth.currentUser;
+  }
   async loginFireAuth(value): Promise<User> {
     try {
       const { user } = await this.auth.signInWithEmailAndPassword(value.email, value.password);

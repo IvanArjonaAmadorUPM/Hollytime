@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <div *ngIf="user$ | async as user">
+        <h2>Hello {{ user.email }}!</h2>
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header class="header-wrap">
+      <div *ngIf="user$ | async as user">
+        <ion-card-subtitle>Bienvenido {{user.displayName}}</ion-card-subtitle>
+      </div>
+    </ion-card-header>
+      <ion-item-divider class="divider">
+      </ion-item-divider>
+    <ion-card-content>
+      <ion-grid class="button-wrap">
+        <ion-row>
+          <ion-col>
+            <ion-button shape="round" fill="solid">
+              Crea una nueva ruta
+            </ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button shape="round" fill="solid">
+              Mapa puntos de interés
+            </ion-button>
+          </ion-col>
+        </ion-row>      
+        <ion-row>
+          <ion-col>
+            <ion-button shape="round" fill="solid">
+              Mis rutas
+            </ion-button>
+          </ion-col>
+        </ion-row>      
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
