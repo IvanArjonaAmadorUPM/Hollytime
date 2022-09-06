@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{turistPointInfo.Nombre}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <ion-img class="logo" src={{turistPointInfo.Complemento}} alt="image">
+  </ion-img>
+  <ion-item>
+    <ion-text class="title">
+      Dirección
+    </ion-text>
+    <ion-text>
+      {{turistPointInfo.Direccion}} ,
+      {{turistPointInfo.Numero}}
+    </ion-text>
+  </ion-item>
+  <ion-item>
+    <ion-text class="title">
+      Descripción
+    </ion-text>
+    <div class="desc-wrap">
+      <ion-text class="description">
+        {{turistPointInfo.Descripcion}}
+      </ion-text>
+    </div>
+  </ion-item>
+  <ion-item>
+    <ion-text class="title">
+      Precio
+    </ion-text>
+    <ion-text>
+      {{turistPointInfo.precio}}
+    </ion-text>
+  </ion-item>
+  <ion-item>
+    <ion-text class="title">
+      Horario
+    </ion-text>
+    <ion-text>
+      {{turistPointInfo.horario}}
+    </ion-text>
+  </ion-item>
+</ion-content>

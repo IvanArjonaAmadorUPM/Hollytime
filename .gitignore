@@ -33,3 +33,6 @@ npm-debug.log*
 environments/
 src/environments/environment.ts
 src/environments/environment.prod.ts
+android/app/src/main/AndroidManifest.xml
+android/app/src/main/AndroidManifest.xml
+

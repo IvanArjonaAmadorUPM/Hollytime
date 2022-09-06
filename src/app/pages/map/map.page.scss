@@ -1,0 +1,24 @@
+ion-header{
+    --ion-background-color: #FFBE71;
+    text-align: center;
+    ion-title{
+        display: flex;
+        justify-content: center;
+        font-family: serif ;
+        font-size: 20px;
+        font-weight: bold;
+        color: black;
+    }
+}
+ion-content{
+    --background: none;
+    .container{
+        width: 100%;
+        height: 100%;
+        capacitor-google-map{
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}

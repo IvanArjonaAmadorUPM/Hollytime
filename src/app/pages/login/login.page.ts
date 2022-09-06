@@ -48,7 +48,6 @@ export class LoginPage implements OnInit {
     try {
       const user = await this.authService.loginFireAuth(value);
       if(user){
-        //console.log(user)
         this.emailExists = true;
         this.router.navigate(['/home']);
       }else{
