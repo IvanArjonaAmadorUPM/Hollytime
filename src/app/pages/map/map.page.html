@@ -1,16 +1,80 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Mapa de Alcalá de Henares</ion-title>
-    <ion-buttons slot="start">
-      <ion-back-button defaulthref="home" text="">
-  
-      </ion-back-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
+<ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <ion-list>
+      <div class="title-wrap">
+        <ion-label>Puntos de interés turístico</ion-label>
+      </div>
+      <ion-item>
+        <ion-label>Museos</ion-label>
+        <ion-toggle checked color="tertiary" (ionChange)="onToggleChange($event , 'museos')" [(ngModel)]="museos"></ion-toggle>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label>Arqueología</ion-label>
+        <ion-toggle checked color="tertiary" (ionChange)="onToggleChange($event, 'arqueologia')" [(ngModel)]="arqueologia"></ion-toggle>
+      </ion-item>
+      <ion-item>
+        <ion-label>Torres</ion-label>
+        <ion-toggle checked color="tertiary" (ionChange)="onToggleChange($event, 'torres')"[(ngModel)]="torres"></ion-toggle>
+      </ion-item>
+      <ion-item>
+        <ion-label>Iglesias</ion-label>
+        <ion-toggle checked color="tertiary" (ionChange)="onToggleChange($event, 'iglesias')"[(ngModel)]="iglesias"></ion-toggle>
+      </ion-item>
+      <ion-item>
+        <ion-label>Edificios y monumentos</ion-label>
+        <ion-toggle checked color="tertiary" (ionChange)="onToggleChange($event, 'monumentos')"[(ngModel)]="monumentos"></ion-toggle>
+      </ion-item>
+    </ion-list>
+    <ion-list>
+      <div class="title-wrap">
+        <ion-label>Barrios medievales</ion-label>
+      </div>      
+      <ion-item>
+        <ion-label>Cristiano</ion-label>
+        <ion-toggle color="tertiary" (ionChange)="onToggleChange($event , 'cristiano')" [(ngModel)]="cristiano" disabled="true"></ion-toggle>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label>Musulman</ion-label>
+        <ion-toggle color="tertiary" (ionChange)="onToggleChange($event, 'musulman')" [(ngModel)]="musulman" disabled="true"></ion-toggle>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label>Judio</ion-label>
+        <ion-toggle color="tertiary" (ionChange)="onToggleChange($event, 'judio')"[(ngModel)]="judio" disabled="true"></ion-toggle>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+<div class="ion-page" id="main-content">
 
-<ion-content>
-  <div class="container">
-    <capacitor-google-map #map></capacitor-google-map>
-  </div>
-</ion-content>
+<ion-header>
+    <ion-toolbar>
+      <ion-title>Mapa de Alcalá de Henares</ion-title>
+          <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+            <!-- <ion-back-button defaulthref="home" text="">
+      
+            </ion-back-button> -->
+          </ion-buttons>
+
+      </ion-toolbar>
+    </ion-header>
+
+  <ion-content>
+    <div class="container">
+      <capacitor-google-map #map></capacitor-google-map>
+    </div>
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button >
+        <ion-icon class="back-button" name="arrow-back-outline" (click)="onBackClicked()"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </ion-content>
+</div>

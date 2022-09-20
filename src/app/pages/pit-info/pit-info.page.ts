@@ -10,7 +10,6 @@ export class PitInfoPage implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log("dsadasdasdsat" , this.turistPointInfo)
   }
 
 }
