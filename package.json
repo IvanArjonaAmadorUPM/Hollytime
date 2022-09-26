@@ -31,6 +31,7 @@
     "@capacitor/status-bar": "4.0.1",
     "@ionic/angular": "^6.1.9",
     "firebase": "^9.9.4",
+    "ionic2-calendar": "^0.6.9",
     "ionicons": "^6.0.3",
     "rxjs": "~6.6.0",
     "tslib": "^2.2.0",

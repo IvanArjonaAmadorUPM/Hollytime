@@ -1,0 +1,42 @@
+<ion-content role="feed" >
+  <ion-card [ngStyle]="{'--ion-background-color'  : getBackGroundColor(evento.tipo)}">
+    <ion-card-header>
+      <ion-item>
+        <ion-icon *ngIf="evento.tipo=='deporte'" name="football"></ion-icon>
+        <ion-icon *ngIf="evento.tipo=='musica'" name="musical-notes"></ion-icon>
+        <ion-icon *ngIf="evento.tipo=='cultura'" name="book"></ion-icon>
+        <ion-icon *ngIf="evento.tipo=='cine'" name="film"></ion-icon>
+        <ion-icon *ngIf="evento.tipo=='especial'" name="diamond"></ion-icon>
+        <ion-icon *ngIf="evento.tipo=='gastronomia'" name="fast-food"></ion-icon>
+        <ion-icon *ngIf="evento.tipo=='ocio'" name="happy"></ion-icon>
+        <ion-label class="title">{{evento.nombre}}</ion-label>
+      </ion-item>
+    </ion-card-header>
+    <ion-card-subtitle>
+      <div>
+        <ion-icon name="calendar-number-outline"></ion-icon>
+        <ion-label *ngIf="evento.fechaInicio!=evento.fechaFin">{{ evento.fechaInicio}} // {{evento.fechaFin}}</ion-label>
+        <ion-label *ngIf="evento.fechaInicio==evento.fechaFin">{{ evento.fechaInicio}}</ion-label>
+      </div>
+      <div>
+        <ion-icon name="time-outline"></ion-icon>
+        <ion-label *ngIf="evento.horaInicio!=evento.horaFinal">{{ evento.horaInicio}} // {{evento.horaFinal}}</ion-label>
+        <ion-label *ngIf="evento.horaInicio==evento.horaFinal">{{ evento.horaInicio}}</ion-label>
+      </div>
+    </ion-card-subtitle>
+    <ion-card-content>
+      <div class="description-wrap">
+        <ion-text>
+          {{evento.descripcionBreve}}
+        </ion-text>
+      </div>
+      <div class="img">
+        <ion-img [src]="evento.urlImagen">
+        </ion-img>
+      </div>
+      <div class="button-wrap">
+        <ion-button (click)="onSeeMoreClicked(evento)" fill="outline">ver más</ion-button>
+      </div>
+  </ion-card-content>
+  </ion-card>
+</ion-content>  

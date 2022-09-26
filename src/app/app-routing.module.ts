@@ -31,6 +31,18 @@ const routes: Routes = [
     path: 'pit-info',
     loadChildren: () => import('./pages/pit-info/pit-info.module').then( m => m.PitInfoPageModule)
   },
+  {
+    path: 'events',
+    loadChildren: () => import('./pages/events/events.module').then( m => m.EventsPageModule)
+  },
+  {
+    path: 'calendar',
+    loadChildren: () => import('./pages/calendar/calendar.module').then( m => m.CalendarPageModule)
+  },
+  {
+    path: 'event-info',
+    loadChildren: () => import('./pages/event-info/event-info.module').then( m => m.EventInfoPageModule)
+  },
 ];
 
 @NgModule({

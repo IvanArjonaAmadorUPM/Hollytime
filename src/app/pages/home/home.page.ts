@@ -25,7 +25,9 @@ export class HomePage implements OnInit {
 
   onMapClick(){
     this.router.navigate(['/map'])
-
+  }
+  onEventsClick(){
+    this.router.navigate(['/events'])
   }
 
 }

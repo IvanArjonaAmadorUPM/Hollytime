@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaulthref="home" text="">
+
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title>Eventos de la ciudad</ion-title>
+    <ion-icon slot ="end" (click)="openCalendar()" name="calendar-outline"></ion-icon>
+    <ion-icon slot ="end" (click)="displaySelectionList()" name="cog-outline"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>  
+    <app-event *ngFor="let event of events" [evento]="event"></app-event>
+</ion-content>

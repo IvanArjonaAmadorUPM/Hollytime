@@ -14,7 +14,7 @@ export class MapsComponent implements OnInit {
 
   // mapOptions = {
   //   id: 'my-map',
-  //   apiKey: "AIzaSyBli5LP8S3SuraP70kgMHxfidn-GrxdvDQ",
+  //   apiKey: "",
   //   config: {
   //     center: {
   //       lat: 33.6,
@@ -40,7 +40,7 @@ export class MapsComponent implements OnInit {
   // const newMap = await GoogleMap.create({
   //   id: 'my-map', // Unique identifier for this map instance
   //     element: this.mapRef, // reference to the capacitor-google-map element
-  //     apiKey: 'AIzaSyBli5LP8S3SuraP70kgMHxfidn-GrxdvDQ', // Your Google Maps API Key
+  //     apiKey: '', // Your Google Maps API Key
   //     config: {
   //       center: {
   //         // The initial position to be rendered by the map

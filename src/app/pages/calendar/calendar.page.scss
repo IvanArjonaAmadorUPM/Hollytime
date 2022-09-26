@@ -1,0 +1,43 @@
+:host ::ng-deep {
+    .monthview-container {
+        height: auto !important;
+    }
+
+}
+.indicator-container {
+    padding-left: 0.5rem;
+    padding-bottom: 0.4rem;
+  }
+  
+  .event-indicator {
+    background: var(--ion-color-success);
+    width: 5px;
+    height: 5px;
+    border-radius: 5px;
+    display: table-cell;
+  }
+  
+  :host ::ng-deep {
+    .monthview-primary-with-event {
+      background-color: white !important;
+    }
+  
+    .monthview-selected {
+      background-color: var(--ion-color-success) !important;
+    }
+  }
+  
+  .with-event {
+    background-color: var(--ion-color-tertiary);
+    border-radius: 15px;
+    .indicator-container{
+    padding-left: 0 !important;
+    display: flex;
+    justify-content: space-evenly;
+    }
+  }
+  :host ::ng-deep {
+  .calendar-event-inner{
+    background: var(--ion-color-tertiary) !important;
+    border-radius: 15px;
+  }}

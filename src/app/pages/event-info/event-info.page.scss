@@ -1,0 +1,29 @@
+ion-header{
+    text-align: center;
+    ion-title{
+        display: flex;
+        justify-content: center;
+        font-family: serif ;
+        font-size: 20px;
+        font-weight: bold;
+        color: black;
+    }
+}
+ion-content{
+    .title{
+        display: flex;
+        justify-content: center;
+        font-family: serif ;
+        font-size: 26px;
+        font-weight: bold;
+        color: black;
+        margin-right:20px;
+    }
+    .desc-wrap{
+        max-height: 250px;
+        overflow: scroll;
+    }
+    .description{
+        font-size: 16px;
+    }
+}

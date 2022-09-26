@@ -1,0 +1,88 @@
+<ion-header [ngStyle]="{'--ion-background-color'  : getBackGroundColor(evento.tipo)}">
+  <ion-toolbar>
+    <ion-icon *ngIf="evento.tipo=='deporte'" name="football"></ion-icon>
+    <ion-icon *ngIf="evento.tipo=='musica'" name="musical-notes"></ion-icon>
+    <ion-icon *ngIf="evento.tipo=='cultura'" name="book"></ion-icon>
+    <ion-icon *ngIf="evento.tipo=='cine'" name="film"></ion-icon>
+    <ion-icon *ngIf="evento.tipo=='especial'" name="diamond"></ion-icon>
+    <ion-icon *ngIf="evento.tipo=='gastronomia'" name="fast-food"></ion-icon>
+    <ion-icon *ngIf="evento.tipo=='ocio'" name="happy"></ion-icon>
+    <ion-title>{{evento.nombre}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  [ngStyle]="{'--ion-background-color'  : getBackGroundColor(evento.tipo)}">
+  <ion-img class="logo" [src]="evento.urlImagen" alt="image">
+  </ion-img>
+  <ion-item>
+    <ion-icon class="title" name="compass-outline"></ion-icon>
+    <ion-text>
+      {{evento.direccion}} ,
+      {{evento.numero}}
+    </ion-text>
+  </ion-item>
+  <ion-item>
+    <div class="desc-wrap">
+      <ion-text class="description">
+        {{evento.descripcionExtensa}}
+      </ion-text>
+    </div>
+  </ion-item>
+  <ion-item>
+    <ion-icon class="title" name="cash-outline"></ion-icon>
+    <ion-text *ngIf="evento.precio == 'Gratis'">
+      Entrada al evento gratuita
+    </ion-text>
+    <ion-text *ngIf="evento.precio != 'Gratis'">
+      {{evento.precio}} €
+    </ion-text>
+  </ion-item>
+  <ion-item>
+    <ion-icon class="title" name="time-outline"></ion-icon>
+    <ion-text *ngIf="evento.horaInicio != 'Todo el día'">
+      {{evento.horaInicio}} // {{evento.horaFinal}}
+    </ion-text>
+    <ion-text *ngIf="evento.horaInicio == 'Todo el día'">
+      El evento dura todo el día
+    </ion-text>
+  </ion-item>
+  <ion-item>
+    <ion-icon class="title" name="accessibility-outline"></ion-icon>
+    <ion-text *ngIf="!evento.accesible">
+      El evento tiene problemas de accesibilidad para ciertos asistentes
+    </ion-text>
+    <ion-text *ngIf="evento.accesible">
+      El evento es accesible a todos los publicos
+    </ion-text>
+  </ion-item>
+  <ion-item>
+    <ion-icon class="title" name="link-outline"></ion-icon>
+    <a href="{{evento.urlSitio}}">
+      Más informacion
+    </a>
+  </ion-item>
+  <ion-item>
+    <ion-icon class="title" name="people-outline"></ion-icon>
+    <ion-text *ngIf="evento.perfil=='Todos'">
+      El evento está pensado para todos los públicos
+    </ion-text>
+    <ion-text *ngIf="evento.perfil=='Familiar'">
+      El evento está pensado para familias
+    </ion-text>
+    <ion-text *ngIf="evento.perfil=='Jovenes'">
+      El evento está pensado para un público joven
+    </ion-text>
+    <ion-text *ngIf="evento.perfil=='Adultos'">
+      El evento está pensado para un público adulto
+    </ion-text>
+    <ion-text *ngIf="evento.perfil=='Niños'">
+      El evento está pensado para niños
+    </ion-text>
+    <ion-text *ngIf="evento.perfil=='Mayores'">
+      El evento está pensado para mayores
+    </ion-text>
+    <ion-text *ngIf="evento.perfil=='Amigos'">
+      El evento está pensado para disfrutar con amigos
+    </ion-text>
+  </ion-item>
+</ion-content>
