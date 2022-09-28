@@ -12,5 +12,11 @@
 </ion-header>
 
 <ion-content>  
-    <app-event *ngFor="let event of events" [evento]="event"></app-event>
+    <app-event *ngFor="let event of eventsSliced" [evento]="event"></app-event>
+    <ion-infinite-scroll threshold="150px" (ionInfinite)="loadMoreData($event)">
+      <ion-infinite-scroll-content
+        loadingSpinner="crescent"
+        loadingText="Cargando más eventos...">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
 </ion-content>

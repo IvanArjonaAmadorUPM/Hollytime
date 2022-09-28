@@ -12,6 +12,8 @@ import { ActionSheetController } from '@ionic/angular';
 })
 export class EventsPage implements OnInit {
   eventsToCalendar = []
+  numberEventsShown = 5;
+  eventsSliced = []
   // [{
   //   title: 'Mercadillo Medieval', 
   //   startTime : new Date(
@@ -275,7 +277,11 @@ export class EventsPage implements OnInit {
     ) { }
 
   ngOnInit() {
+    this.createEventsToShow()
     this.createEventsToCalendar()
+  }
+  createEventsToShow() {
+    this.eventsSliced = this.events.slice(0,this.numberEventsShown)
   }
 
   async displaySelectionList(){
@@ -336,6 +342,15 @@ export class EventsPage implements OnInit {
     });
   
     await modal.present();
+  }
+
+  loadMoreData(event){
+    setTimeout(()=>{
+      const arrAux = this.events.slice(this.numberEventsShown,this.numberEventsShown + 5)
+      this.eventsSliced.push(... arrAux)
+      this.numberEventsShown = this.numberEventsShown + 5;
+      event.target.complete();
+    }, 1000)
   }
 
 }
