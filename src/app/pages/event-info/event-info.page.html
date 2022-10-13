@@ -63,26 +63,28 @@
   </ion-item>
   <ion-item>
     <ion-icon class="title" name="people-outline"></ion-icon>
-    <ion-text *ngIf="evento.perfil=='Todos'">
-      El evento está pensado para todos los públicos
-    </ion-text>
-    <ion-text *ngIf="evento.perfil=='Familiar'">
-      El evento está pensado para familias
-    </ion-text>
-    <ion-text *ngIf="evento.perfil=='Jovenes'">
-      El evento está pensado para un público joven
-    </ion-text>
-    <ion-text *ngIf="evento.perfil=='Adultos'">
-      El evento está pensado para un público adulto
-    </ion-text>
-    <ion-text *ngIf="evento.perfil=='Niños'">
-      El evento está pensado para niños
-    </ion-text>
-    <ion-text *ngIf="evento.perfil=='Mayores'">
-      El evento está pensado para mayores
-    </ion-text>
-    <ion-text *ngIf="evento.perfil=='Amigos'">
-      El evento está pensado para disfrutar con amigos
-    </ion-text>
+    <div *ngFor="let tipo of evento.perfil">
+      <ion-text *ngIf="tipo=='Todos'">
+        El evento está pensado para todos los públicos
+      </ion-text>
+      <ion-text *ngIf="tipo=='Familiar'">
+        El evento está pensado para familias
+      </ion-text>
+      <ion-text *ngIf="tipo=='Jovenes'">
+        El evento está pensado para un público joven
+      </ion-text>
+      <ion-text *ngIf="tipo=='Adultos'">
+        El evento está pensado para un público adulto
+      </ion-text>
+      <ion-text *ngIf="tipo=='Niños'">
+        El evento está pensado para niños
+      </ion-text>
+      <ion-text *ngIf="tipo=='Mayores'">
+        El evento está pensado para mayores
+      </ion-text>
+      <ion-text *ngIf="tipo=='Amigos'">
+        El evento está pensado para disfrutar con amigos
+      </ion-text>
+    </div>
   </ion-item>
 </ion-content>

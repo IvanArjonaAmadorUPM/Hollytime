@@ -12,6 +12,10 @@
 </ion-header>
 
 <ion-content>  
+  <div *ngIf="loading;else content">
+    <ion-progress-bar type="indeterminate" color="warning" ></ion-progress-bar>
+  </div>
+  <ng-template #content>
     <app-event *ngFor="let event of eventsSliced" [evento]="event"></app-event>
     <ion-infinite-scroll threshold="150px" (ionInfinite)="loadMoreData($event)">
       <ion-infinite-scroll-content
@@ -19,4 +23,5 @@
         loadingText="Cargando más eventos...">
       </ion-infinite-scroll-content>
     </ion-infinite-scroll>
+  </ng-template>
 </ion-content>

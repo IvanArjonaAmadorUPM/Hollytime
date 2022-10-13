@@ -3,6 +3,7 @@ import { AlertController, IonSelect, ModalController } from '@ionic/angular';
 import { CalendarPage } from '../calendar/calendar.page';
 
 import { ActionSheetController } from '@ionic/angular';
+import { DataService } from '../../services/data.service';
 
 
 @Component({
@@ -11,6 +12,7 @@ import { ActionSheetController } from '@ionic/angular';
   styleUrls: ['./events.page.scss'],
 })
 export class EventsPage implements OnInit {
+  loading = true;
   eventsToCalendar = []
   numberEventsShown = 5;
   eventsSliced = []
@@ -25,20 +27,9 @@ export class EventsPage implements OnInit {
   // allDay: false
   // }]
 
-  createEventsToCalendar(){
-    let eventAuxiliar;
-    this.events.map(event =>{
-      eventAuxiliar = {
-        title: event.nombre,
-        startTime: event.fechaInicio,
-        endTime: event.fechaFin,
-        allDay: event.horaInicio == event.horaFinal
-      }
-      this.eventsToCalendar.push(eventAuxiliar)
-    })
-  }
 
-  events = [{
+  events:any
+  eventosDeEjemplo = [{
     identificador: 1,
     nombre: 'Mercado Cervantino',
     descripcionBreve : 'Vuelve el Mercado Cervantino 2022 al centro histórico de Alcalá de Henares enmarcado de nuevo dentro de la Semana Cervantina, acontecimiento de Interés Turístico Nacional. Es el mercado de época más grande de Europa y uno de los más importantes del mundo.',
@@ -270,15 +261,63 @@ export class EventsPage implements OnInit {
   },
 ]
 
-  constructor(public actionSheetCtrl: 
+  constructor(
+    public actionSheetCtrl: 
     ActionSheetController,
-    private modalCtrl: ModalController
-
+    private modalCtrl: ModalController,
+    public dataService: DataService
     ) { }
 
   ngOnInit() {
+    this.getData()
+  }
+  async getData() {
+    this.events = await this.dataService.getEvents()
+    this.convertEventDateTipe()
     this.createEventsToShow()
     this.createEventsToCalendar()
+
+    setTimeout(() => {
+      this.loading=false
+      ; }, 2000);
+  }
+  convertEventDateTipe() {
+    this.events?.map(event=>{
+      let initDay = event?.fechaInicio?.at(0)
+      let initMonth = event?.fechaInicio?.at(1)-1
+      let inityear = event?.fechaInicio?.at(2)
+      let initHour = event?.fechaInicio?.at(3)
+
+      let finishDay = event?.fechaFin?.at(0)
+      let finishMonth = event?.fechaFin?.at(1)-1 
+      let finishYear = event?.fechaFin?.at(2)
+      let finishHour = event?.fechaFin?.at(3)
+
+    if(initHour==null){
+      let initDate =
+      new Date(
+        Date.UTC(inityear, initMonth,initDay)
+      )
+      let finishDate =
+      new Date(
+        Date.UTC(finishYear,finishMonth, finishDay)
+      )
+      event.fechaInicio = initDate
+      event.fechaFin = finishDate
+    }else{
+      let initDate =
+      new Date(
+        Date.UTC(inityear,initMonth,initDay,initHour-2)
+      )
+      let finishDate =
+      new Date(
+        Date.UTC(finishYear,finishMonth,finishDay,finishHour-2)
+      )
+      event.fechaInicio = initDate
+      event.fechaFin = finishDate
+    }
+
+    })
   }
   createEventsToShow() {
     this.eventsSliced = this.events.slice(0,this.numberEventsShown)
@@ -324,7 +363,18 @@ export class EventsPage implements OnInit {
     actionSheet.present();
   }
 
-
+  createEventsToCalendar(){
+    let eventAuxiliar;
+    this.events.map(event =>{
+      eventAuxiliar = {
+        title: event.nombre,
+        startTime: event.fechaInicio,
+        endTime: event.fechaFin,
+        allDay: event.horaInicio == event.horaFinal
+      }
+      this.eventsToCalendar.push(eventAuxiliar)
+    })
+  }
   setOrder(typeSelected){
     console.log(typeSelected)
   }

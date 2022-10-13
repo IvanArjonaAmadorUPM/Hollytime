@@ -11,7 +11,6 @@ export class EventInfoPage implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(' tetete',this.evento)
   }
   getBackGroundColor(eventType){
     if(eventType=="especial"){
