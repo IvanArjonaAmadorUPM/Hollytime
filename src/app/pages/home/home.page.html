@@ -18,18 +18,52 @@
       <ion-item-divider class="divider">
       </ion-item-divider>
     <ion-card-content>
-      <ion-grid class="button-wrap">
+      <ion-button fill="solid" [ngStyle]="{'--background'  : getBackGroundColor('ruta')}">
+        <div class=“custom-button-content”>
+          <ion-icon slot="" name="rocket"></ion-icon>
+          <ion-label>Nueva ruta</ion-label>
+        </div>
+      </ion-button>
+      <ion-button (click)="onMapClick()" fill="solid" [ngStyle]="{'--background'  : getBackGroundColor('mapa')}">
+        <div class=“custom-button-content”>
+          <ion-icon slot="" name="map"></ion-icon>
+          <ion-label> Mapa</ion-label>
+        </div>
+       
+      </ion-button>        
+      
+      <ion-button fill="solid"[ngStyle]="{'--background'  : getBackGroundColor('misrutas')}">
+        <div class=“custom-button-content”>
+          <ion-icon slot="" name="golf"></ion-icon>
+          <ion-label> Mis rutas</ion-label>
+        </div>
+       
+      </ion-button>
+
+      <ion-button (click)="onEventsClick()" fill="solid" [ngStyle]="{'--background'  : getBackGroundColor('eventos')}">
+        <div class=“custom-button-content”>
+          <ion-icon slot="" name="star" ></ion-icon>
+          <ion-label>Eventos</ion-label>        
+        </div>
+
+        
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+      <!-- <ion-grid class="button-wrap">
         <ion-row>
           <ion-col>
             <ion-button shape="round" fill="solid">
-              Crea una nueva ruta
+              Nueva ruta
             </ion-button>
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col>
             <ion-button (click)="onMapClick()" shape="round" fill="solid">
-              Mapa puntos de interés
+              Mapa
             </ion-button>
           </ion-col>
         </ion-row>      
@@ -43,11 +77,8 @@
         <ion-row>
           <ion-col>
             <ion-button (click)="onEventsClick()" shape="round" fill="solid">
-              Eventos de la ciudad
+              Eventos
             </ion-button>
           </ion-col>
         </ion-row>   
-      </ion-grid>
-    </ion-card-content>
-  </ion-card>
-</ion-content>
+      </ion-grid> -->

@@ -18,9 +18,7 @@ export class HomePage implements OnInit {
   ) { }
 
   async ngOnInit() {
-
     const us = await this.authService.getCurrentUser().then()
-    console.log(us) 
   }
 
   onMapClick(){
@@ -29,5 +27,14 @@ export class HomePage implements OnInit {
   onEventsClick(){
     this.router.navigate(['/events'])
   }
-
+  getBackGroundColor(name){
+    if(name=="eventos")
+      return '#3e76de'
+    if(name=="misrutas")
+      return '#3dd456'
+    if(name=="mapa")
+      return '#3cab96'
+    if(name=="ruta")
+      return '#c7ba44'
+  }
 }
