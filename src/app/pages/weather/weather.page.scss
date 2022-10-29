@@ -1,4 +1,3 @@
-
 ion-header{
     --ion-background-color: #FFBE71;
     text-align: center;
@@ -8,7 +7,7 @@ ion-header{
         font-family: serif ;
         font-size: 20px;
         font-weight: bold;
-        color: black;
+        color: white;
     }
     ion-icon {
         font-size: 32px;
@@ -17,8 +16,9 @@ ion-header{
 
 }
 ion-content{
+    --background: #fff url('https://upload.wikimedia.org/wikipedia/commons/6/65/Plaza_de_Cervantes%2C_Alcal%C3%A1_de_Henares%2C_Espa%C3%B1a_%2810%29.JPG') no-repeat center center / cover;    
     .location{
-        --ion-background-color: #FFBE71;
+        --ion-background-color:#FFBE71;
         margin-top: 10px;
         margin-inline: 10px;
         border-radius: 12px 12px 0 0;
@@ -30,14 +30,14 @@ ion-content{
             align-items: center;
             justify-content: space-between;
             ion-text{
-                color: white;
                 font-family: serif ;
+                color: white;
             }
         }
     }
     ion-card{
         box-shadow: none;
-        --ion-background-color: #FFBE71;
+        --ion-background-color:#FFBE71;
         .img-wrap{
             display: flex;
             justify-content: center;
@@ -53,7 +53,6 @@ ion-content{
                 justify-content: center;
                 font-size: 60px;
                 color: white;
-
                 .centigrados{
                     font-size: small;
                     margin-top: 13px;
@@ -62,7 +61,6 @@ ion-content{
             ion-card-subtitle{
                 display: flex;
                 justify-content: center;
-                color: white;
                 font-size: medium;
                 flex-direction: column;
                 .descripcion::first-letter {
@@ -70,7 +68,8 @@ ion-content{
                 }
                 ion-text{
                     text-align: center;
-   
+                    color: white;
+
                 }
             }
         }
@@ -89,8 +88,8 @@ ion-content{
                align-items: center;
                justify-content: space-around;
                ion-text{
-                   color: white;
                    font-family: serif ;
+                   color: white;
                }
                .title{
                    font-weight: bold;

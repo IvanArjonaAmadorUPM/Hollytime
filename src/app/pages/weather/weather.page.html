@@ -14,7 +14,7 @@
     <ion-progress-bar type="indeterminate" color="warning" ></ion-progress-bar>
   </div>
   <ng-template #content>
-    <ion-item class="location" >
+    <ion-item class="location animate__animated animate__fadeInUp" >
       <div class="text-wrapper">
         <ion-text class="ion-text-left">
           <ion-icon name="pin"></ion-icon>
@@ -25,7 +25,7 @@
         </ion-text>
       </div>
     </ion-item>
-    <ion-card>
+    <ion-card class="animate__animated animate__fadeInUp">
       <div class="img-wrap" >
         <ion-img alt="Tiempo hoy" src={{currentIcon}}> </ion-img>
       </div>
@@ -48,7 +48,7 @@
       </ion-card-header>
     </ion-card>
 
-    <ion-item class="more-info">
+    <ion-item class="more-info animate__animated animate__fadeInUp">
       <div class="info-wrapper">
         <div class="text-wrapper">
           <ion-text class="title">
@@ -75,7 +75,7 @@
       </div>
     </ion-item>
 
-    <ion-item class="hourly">
+    <ion-item class="hourly animate__animated animate__fadeInUp">
       <div class="hourly-wrapp">
         <div class="hourly-item" *ngFor="let hour of hourly">
           <ion-text class="bold temperature">
