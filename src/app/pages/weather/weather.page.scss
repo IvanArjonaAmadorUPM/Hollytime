@@ -18,7 +18,7 @@ ion-header{
 ion-content{
     --background: #fff url('https://upload.wikimedia.org/wikipedia/commons/6/65/Plaza_de_Cervantes%2C_Alcal%C3%A1_de_Henares%2C_Espa%C3%B1a_%2810%29.JPG') no-repeat center center / cover;    
     .location{
-        --ion-background-color:#FFBE71;
+        --ion-background-color:rgba(255, 190, 113, 0.9);
         margin-top: 10px;
         margin-inline: 10px;
         border-radius: 12px 12px 0 0;
@@ -37,7 +37,7 @@ ion-content{
     }
     ion-card{
         box-shadow: none;
-        --ion-background-color:#FFBE71;
+        --ion-background-color:rgba(255, 190, 113, 0.9);
         .img-wrap{
             display: flex;
             justify-content: center;
@@ -75,10 +75,11 @@ ion-content{
         }
     }
     .more-info{
-        --ion-background-color: #FFBE71;
+        --ion-background-color:rgba(255, 190, 113, 0.9);
         margin-top: 10px;
         margin-inline: 10px;
         border-radius: 12px 12px 0 0;
+
        .info-wrapper{
         width: 100%;
            .text-wrapper{
@@ -99,7 +100,7 @@ ion-content{
     }
     .hourly{
         overflow: scroll;
-        --ion-background-color: #FFBE71;
+        --ion-background-color:rgba(255, 190, 113, 0.9);
         margin-top: 10px;
         margin-inline: 10px;
         border-radius: 12px 12px 0 0;

@@ -18,13 +18,13 @@
       <ion-item-divider class="divider">
       </ion-item-divider>
     <ion-card-content>
-      <ion-button fill="solid" [ngStyle]="{'--background'  : getBackGroundColor('ruta')}">
+      <ion-button class="animate__animated animate__fadeInUp" fill="solid" [ngStyle]="{'--background'  : getBackGroundColor('ruta')}">
         <div class=“custom-button-content”>
           <ion-icon slot="" name="rocket"></ion-icon>
           <ion-label>Nueva ruta</ion-label>
         </div>
       </ion-button>
-      <ion-button (click)="onMapClick()" fill="solid" [ngStyle]="{'--background'  : getBackGroundColor('mapa')}">
+      <ion-button class="animate__animated animate__fadeInUp" (click)="onMapClick()" fill="solid" [ngStyle]="{'--background'  : getBackGroundColor('mapa')}">
         <div class=“custom-button-content”>
           <ion-icon slot="" name="map"></ion-icon>
           <ion-label> Mapa</ion-label>
@@ -32,7 +32,7 @@
        
       </ion-button>        
       
-      <ion-button fill="solid"[ngStyle]="{'--background'  : getBackGroundColor('misrutas')}">
+      <ion-button class="animate__animated animate__fadeInUp" fill="solid"[ngStyle]="{'--background'  : getBackGroundColor('misrutas')}">
         <div class=“custom-button-content”>
           <ion-icon slot="" name="golf"></ion-icon>
           <ion-label> Mis rutas</ion-label>
@@ -40,13 +40,13 @@
        
       </ion-button>
 
-      <ion-button (click)="onEventsClick()" fill="solid" [ngStyle]="{'--background'  : getBackGroundColor('eventos')}">
+      <ion-button class="animate__animated animate__fadeInUp" (click)="onEventsClick()" fill="solid" [ngStyle]="{'--background'  : getBackGroundColor('eventos')}">
         <div class=“custom-button-content”>
           <ion-icon slot="" name="star" ></ion-icon>
           <ion-label>Eventos</ion-label>        
         </div>
       </ion-button>
-      <ion-button (click)="onWeatherClick()" fill="solid" [ngStyle]="{'--background'  : getBackGroundColor('tiempo')}">
+      <ion-button class="animate__animated animate__fadeInUp" (click)="onWeatherClick()" fill="solid" [ngStyle]="{'--background'  : getBackGroundColor('tiempo')}">
         <div class=“custom-button-content”>
           <ion-icon name="sunny-outline"></ion-icon>
           <ion-label>Tiempo</ion-label>        

@@ -279,7 +279,7 @@ export class EventsPage implements OnInit {
 
     setTimeout(() => {
       this.loading=false
-      ; }, 2000);
+      ; }, 1500);
   }
   convertEventDateTipe() {
     this.events?.map(event=>{

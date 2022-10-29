@@ -1,5 +1,5 @@
 <ion-content role="feed" >
-  <ion-card [ngStyle]="{'--ion-background-color'  : getBackGroundColor(evento.tipo)}">
+  <ion-card  class="animate__animated animate__fadeInUpBig" [ngStyle]="{'--ion-background-color'  : getBackGroundColor(evento.tipo)}">
     <ion-card-header>
       <ion-item>
         <ion-icon *ngIf="evento.tipo=='deporte'" name="football"></ion-icon>
