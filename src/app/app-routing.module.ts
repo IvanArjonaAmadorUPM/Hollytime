@@ -43,6 +43,10 @@ const routes: Routes = [
     path: 'event-info',
     loadChildren: () => import('./pages/event-info/event-info.module').then( m => m.EventInfoPageModule)
   },
+  {
+    path: 'weather',
+    loadChildren: () => import('./pages/weather/weather.module').then( m => m.WeatherPageModule)
+  },
 ];
 
 @NgModule({

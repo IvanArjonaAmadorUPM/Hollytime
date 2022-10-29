@@ -1,0 +1,95 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaulthref="home" text="">
+
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title>Tiempo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>  
+  <div *ngIf="loading;else content">
+    <ion-progress-bar type="indeterminate" color="warning" ></ion-progress-bar>
+  </div>
+  <ng-template #content>
+    <ion-item class="location" >
+      <div class="text-wrapper">
+        <ion-text class="ion-text-left">
+          <ion-icon name="pin"></ion-icon>
+          Alcalá de Henares
+        </ion-text>
+        <ion-text class="ion-text-right">
+          {{currentDate}}
+        </ion-text>
+      </div>
+    </ion-item>
+    <ion-card>
+      <div class="img-wrap" >
+        <ion-img alt="Tiempo hoy" src={{currentIcon}}> </ion-img>
+      </div>
+      <ion-card-header>
+        <ion-card-title>
+          {{temp}}
+          <ion-text class="centigrados">
+            °C
+          </ion-text>
+        </ion-card-title>
+        <ion-card-subtitle>
+          <ion-text class="descripcion">
+            {{description}}
+          </ion-text>
+          <ion-text>
+            {{windSpeed}} km/h 
+            <ion-icon name="navigate"></ion-icon>
+          </ion-text>
+        </ion-card-subtitle>
+      </ion-card-header>
+    </ion-card>
+
+    <ion-item class="more-info">
+      <div class="info-wrapper">
+        <div class="text-wrapper">
+          <ion-text class="title">
+            Máxima
+          </ion-text>
+          <ion-text class="title">
+            Mínima
+          </ion-text>
+          <ion-text class="title">
+            Humedad
+          </ion-text>
+        </div>
+        <div class="text-wrapper">
+          <ion-text>
+            {{maxTemp}}  °C
+          </ion-text>
+          <ion-text >
+            {{minTemp}}   °C    
+          </ion-text>
+          <ion-text >
+            {{humidity}}%
+          </ion-text>
+        </div>
+      </div>
+    </ion-item>
+
+    <ion-item class="hourly">
+      <div class="hourly-wrapp">
+        <div class="hourly-item" *ngFor="let hour of hourly">
+          <ion-text class="bold temperature">
+            {{getTemp(hour.temp)}}°
+          </ion-text>
+          <ion-img alt="Tiempo por horas" src={{getIcon(hour)}}> </ion-img>
+          <ion-text>
+            {{getDay(hour.dt)}}
+          </ion-text>
+          <ion-text class="bold">
+            {{getHour(hour.dt)}}
+          </ion-text>
+        </div>
+      </div>
+    </ion-item>
+  </ng-template>
+</ion-content>

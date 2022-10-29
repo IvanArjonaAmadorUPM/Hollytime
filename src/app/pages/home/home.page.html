@@ -45,8 +45,12 @@
           <ion-icon slot="" name="star" ></ion-icon>
           <ion-label>Eventos</ion-label>        
         </div>
-
-        
+      </ion-button>
+      <ion-button (click)="onWeatherClick()" fill="solid" [ngStyle]="{'--background'  : getBackGroundColor('tiempo')}">
+        <div class=“custom-button-content”>
+          <ion-icon name="sunny-outline"></ion-icon>
+          <ion-label>Tiempo</ion-label>        
+        </div>
       </ion-button>
     </ion-card-content>
   </ion-card>
