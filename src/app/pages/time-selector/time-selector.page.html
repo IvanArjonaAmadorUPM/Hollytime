@@ -1,0 +1,87 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Selección de tiempo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="animate__animated animate__fadeInUp">
+    <ion-card-header>
+      <ion-card-title>Selecciona la hora de comienzo
+  
+
+      </ion-card-title>
+      <ion-card-subtitle>Elige a qué hora quieres comenzar tu ruta</ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+
+      <ion-datetime-button 
+      datetime="datetime"
+      color="success">
+      </ion-datetime-button>
+      <ion-button fill="clear" id="click-trigger">
+        <ion-icon name="information-circle"></ion-icon>
+
+      </ion-button>
+    </ion-card-content>
+
+  </ion-card>
+  <ion-card class="animate__animated animate__fadeInUp">
+    <ion-card-header>
+      <ion-card-title>Selecciona la duración estimada
+      </ion-card-title>
+      <ion-card-subtitle>Elige cuánto tiempo quieres pasar en la ruta</ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content class="time-selector">
+      <ion-text class="hour-text">
+        {{timeSelected}}
+        Horas
+      </ion-text>
+      <ion-range
+      [ticks]="true" 
+      [snaps]="true" 
+      [min]="1" 
+      [max]="8"
+      (ionChange)="ontimeChange($event)"
+      ></ion-range>
+    </ion-card-content>
+  
+  </ion-card>
+  <div class="button-wrapp">
+    <ion-button
+    class="continue-button animate__animated animate__fadeInUp"
+    fill="outline"
+    color="#71e7ff"
+    [disabled]="checkContinue()"  
+    (click)="timeSelectionComplete()"
+    >
+    Continuar
+      <ion-icon slot="end" name="caret-forward-circle"></ion-icon>
+    </ion-button>
+  </div>
+</ion-content>
+
+
+
+<ion-modal [keepContentsMounted]="true">
+  <ng-template>
+    <ion-datetime 
+    id="datetime"
+    presentation="time"
+    minuteValues="0,15,30,45"
+    hourValues="8,9,10,11,12,13,14,15,16,17,18,19,20,21,22"
+    (ionChange)="onHourChanged($event)"
+    [showDefaultButtons]="true"
+    cancelText="Cancelar"
+    doneText="Confirmar"
+    ></ion-datetime>  </ng-template>
+</ion-modal>
+
+<ion-popover trigger="click-trigger" triggerAction="click">
+  <ng-template>
+    <ion-content class="ion-padding">Selecciona la hora aproximada a la que iniciarás la ruta. 
+      Se escogerá la fecha de hoy.</ion-content>
+  </ng-template>
+</ion-popover>

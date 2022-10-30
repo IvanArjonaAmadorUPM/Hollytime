@@ -18,7 +18,7 @@
       <ion-item-divider class="divider">
       </ion-item-divider>
     <ion-card-content>
-      <ion-button class="animate__animated animate__fadeInUp" fill="solid" [ngStyle]="{'--background'  : getBackGroundColor('ruta')}">
+      <ion-button class="animate__animated animate__fadeInUp" (click)="onNewRouteClick()" fill="solid" [ngStyle]="{'--background'  : getBackGroundColor('ruta')}">
         <div class=“custom-button-content”>
           <ion-icon slot="" name="rocket"></ion-icon>
           <ion-label>Nueva ruta</ion-label>

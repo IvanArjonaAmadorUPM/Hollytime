@@ -1,0 +1,81 @@
+ion-header{
+    --ion-background-color: #FFBE71;
+    text-align: center;
+    ion-title{
+        display: flex;
+        justify-content: center;
+        font-family: serif ;
+        font-size: 20px;
+        font-weight: bold;
+        color: white;
+    }
+    ion-icon {
+        font-size: 32px;
+        margin-right: 10px;
+      }
+
+}
+ion-content{
+    ion-card{
+        --ion-background-color: #FFBE71;
+    
+    ion-card-header{
+        ion-card-title{
+            color: white;
+            text-align: center;
+
+            }
+       ion-card-subtitle{
+            color: white;
+            text-align: center;
+
+            }
+        }
+        ion-card-content{
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            ion-datetime-button{
+                padding-left: 50px;
+            }
+            .hour-text{
+                text-align: center;
+                color: white;
+                font-size: x-large;
+                font-weight: bold;
+            }
+
+        }
+        .time-selector{
+            display: flex;
+            flex-direction: column;
+        }
+        ion-range {
+        --bar-background-active: #71e7ff;
+        --bar-height: 6px;
+        --bar-border-radius: 6px;
+        --knob-background: #ff9c71;
+        --knob-size: 30px;
+        --pin-color: #fff;
+}
+    }
+    .button-wrapp{
+        width: 100%;
+        justify-content: center;
+        display: flex;
+        .continue-button{
+            color:#71e7ff ;
+            width: 100%;
+            margin-inline: 10px;
+       
+        }
+        ion-button[disabled]{
+            color: gray ;
+            opacity: 0.9;
+            background: #b3b3b3;
+        }
+    }
+}
+ion-datetime {
+    --background: #FFBE71;
+}

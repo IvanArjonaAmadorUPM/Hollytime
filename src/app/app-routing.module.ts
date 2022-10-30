@@ -47,6 +47,14 @@ const routes: Routes = [
     path: 'weather',
     loadChildren: () => import('./pages/weather/weather.module').then( m => m.WeatherPageModule)
   },
+  {
+    path: 'time-selector',
+    loadChildren: () => import('./pages/time-selector/time-selector.module').then( m => m.TimeSelectorPageModule)
+  },
+  {
+    path: 'location-selection',
+    loadChildren: () => import('./pages/location-selection/location-selection.module').then( m => m.LocationSelectionPageModule)
+  },
 ];
 
 @NgModule({

@@ -30,6 +30,9 @@ export class HomePage implements OnInit {
   onWeatherClick(){
     this.router.navigate(['/weather'])
   }
+  onNewRouteClick(){
+    this.router.navigate(['/time-selector'])
+  }
   getBackGroundColor(name){
     if(name=="eventos")
       return '#3e76de'
