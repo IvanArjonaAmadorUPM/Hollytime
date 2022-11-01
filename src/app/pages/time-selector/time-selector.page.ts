@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-time-selector',
@@ -12,7 +13,9 @@ export class TimeSelectorPage implements OnInit {
   timeSelected = 0
   userSelection
   status
-  constructor() { }
+  constructor(
+    private router: Router,
+  ) { }
 
   ngOnInit() {
   }
@@ -37,7 +40,11 @@ export class TimeSelectorPage implements OnInit {
       "day" : this.daySelected,
       "time" : this.timeSelected
     }
-    console.log(this.userSelection)
-    
+    let dataToPass: any = {
+      queryParams: {
+        time: JSON.stringify(this.userSelection)
+      }
+    };
+    this.router.navigate(['/location-selection'], dataToPass);
   }
 }

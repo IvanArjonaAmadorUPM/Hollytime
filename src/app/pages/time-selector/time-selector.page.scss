@@ -16,9 +16,12 @@ ion-header{
 
 }
 ion-content{
+    .first-card{
+            margin-top: 150px;
+    }
     ion-card{
         --ion-background-color: #FFBE71;
-    
+
     ion-card-header{
         ion-card-title{
             color: white;

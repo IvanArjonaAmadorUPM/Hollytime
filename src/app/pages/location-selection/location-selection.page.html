@@ -1,9 +1,61 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>location-selection</ion-title>
+    <ion-title>Punto de partida</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-card *ngIf="!loadingCoords" class="first-card animate__animated animate__fadeInUp"  >
+    <ion-card-header>
+      <ion-card-title>¿Desde donde quieres comenzar la ruta?</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <div class="button-wrapp">
+        <ion-button
+        class="continue-button animate__animated animate__fadeInUp"
+        fill="solid"
+        (click)="chooseLocation()"
+        size="large"
+        >
+        Elegir Ubicación
+        <ion-icon slot="end" name="locate"></ion-icon>
+        </ion-button>
+      </div>
 
+      <div class="button-wrapp">
+        <ion-button
+        class="continue-button animate__animated animate__fadeInUp"
+        fill="solid"
+        (click)="chooseActualLocation()"
+        size="large"
+        [ngStyle]="{'--background:'  : currentPostionSelected ? '#ff9c71' : '#FFBE71'}"
+        >
+        Ubicación actual
+        <ion-icon slot="end" name="search"></ion-icon>
+        </ion-button>
+      </div>
+
+    </ion-card-content>
+
+  </ion-card>
+  <div *ngIf="!loadingCoords"  class="button-wrapp animate__animated animate__fadeInUp">
+    <ion-button
+    class="continue-button animate__animated animate__fadeInUp"
+    fill="outline"
+    color="#71e7ff"
+    [disabled]="checkContinue()"  
+    (click)="geolocationSelectionComplete()"
+    >
+    Continuar
+      <ion-icon slot="end" name="caret-forward-circle"></ion-icon>
+    </ion-button>
+  </div>
+    <ion-item *ngIf="loadingCoords"  lines="none">
+      <div class="spinner-wrapp">
+
+        <ion-text>Calculando posición actual</ion-text>
+        <ion-spinner name="lines-sharp"></ion-spinner>
+      </div>
+    </ion-item>
 </ion-content>

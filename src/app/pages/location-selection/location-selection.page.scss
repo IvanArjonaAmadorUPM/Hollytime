@@ -1,0 +1,90 @@
+ion-header{
+    --ion-background-color: #FFBE71;
+    text-align: center;
+    ion-title{
+        display: flex;
+        justify-content: center;
+        font-family: serif ;
+        font-size: 20px;
+        font-weight: bold;
+        color: white;
+    }
+    ion-icon {
+        font-size: 32px;
+        margin-right: 10px;
+      }
+
+}
+ion-content{
+    
+    .first-card{
+        margin-top: 150px;
+}
+    ion-card{
+        --ion-background-color: #FFBE71;
+        ion-card-header{
+            ion-card-title{
+                color: white;
+                text-align: center;
+                }
+
+}   
+    ion-card-content{
+        display: flex;
+        flex-direction: column;
+        .button-wrapp{
+            width: 100%;
+            justify-content: center;
+            display: flex;
+            ion-button{
+                color:white;
+                --background: #FFBE71;
+                margin-top: 20px;
+            }
+                }
+
+            }
+        }
+        .button-wrapp{
+            width: 100%;
+            justify-content: center;
+            display: flex;
+            .continue-button{
+                color:#71e7ff ;
+                width: 100%;
+                margin-inline: 10px;
+           
+            }
+        }
+        
+        ion-item{
+            height: 100%;
+            width: 100%;
+            padding: 0;
+            max-height: 100% ;
+            max-width: 100% ;
+            justify-content: center;
+            display: flex;
+            .spinner-wrapp{
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+            
+                ion-spinner{
+                    color: #FFBE71;
+                    width: 100% !important;
+                    height: 200px !important;
+                }
+                ion-text{
+                    text-align: center;
+                    font-family: serif ;
+                    font-size: 20px;
+                    font-weight: bold;
+                    padding-bottom: 20px;
+                }
+            }
+        }
+}
+.selected{
+    --background: #ff9c71;
+}
