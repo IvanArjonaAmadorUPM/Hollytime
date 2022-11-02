@@ -1,0 +1,35 @@
+ion-header{
+  --ion-background-color: #FFBE71;
+  ion-toolbar{
+    ion-buttons{
+      ion-button{
+        font-family: serif ;
+        font-weight: bold;
+        color: white;
+    }
+      }
+    }
+
+}
+
+  .ion-page{
+    --background: transparent;
+    --ion-background-color:transparent;
+    ion-content{
+      --background: transparent;
+      --ion-background-color:transparent;
+        .map-container{
+          height: 100%;
+          width: 100%;
+            capacitor-google-map {
+                display: inline-block;
+                width: 100%;
+                position: initial !important;
+              }
+        }
+    }
+  }
+  ion-modal{
+    --background: transparent;
+    --ion-background-color:transparent;
+  }

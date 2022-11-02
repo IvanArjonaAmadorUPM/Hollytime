@@ -55,6 +55,11 @@ ion-content{
                 margin-inline: 10px;
            
             }
+            ion-button[disabled]{
+                color: gray ;
+                opacity: 0.9;
+                background: #b3b3b3;
+            }
         }
         
         ion-item{

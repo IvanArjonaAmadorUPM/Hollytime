@@ -1,0 +1,27 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="medium" (click)="cancel()">Cancelar</ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="confirm()">Seleccionar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<div class="ion-page" id="main-content">
+
+  <ion-content>
+    <div class="map-container">
+      <capacitor-google-map #map></capacitor-google-map>
+    </div>
+
+</ion-content>
+</div>
+
+<ion-popover #popover [isOpen]="isPopOverOpen" (didDismiss)="isPopOverOpen = false">
+  <ng-template>
+    <ion-content class="ion-padding">Mueve el marcador para seleccionar donde comenzarás tu ruta</ion-content>
+  </ng-template>
+</ion-popover>

@@ -55,6 +55,14 @@ const routes: Routes = [
     path: 'location-selection',
     loadChildren: () => import('./pages/location-selection/location-selection.module').then( m => m.LocationSelectionPageModule)
   },
+  {
+    path: 'map-position-selector',
+    loadChildren: () => import('./pages/map-position-selector/map-position-selector.module').then( m => m.MapPositionSelectorPageModule)
+  },
+  {
+    path: 'preferences-selector',
+    loadChildren: () => import('./pages/preferences-selector/preferences-selector.module').then( m => m.PreferencesSelectorPageModule)
+  },
 ];
 
 @NgModule({

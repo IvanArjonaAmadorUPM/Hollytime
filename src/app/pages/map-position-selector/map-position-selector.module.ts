@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { LocationSelectionPageRoutingModule } from './location-selection-routing.module';
+import { MapPositionSelectorPageRoutingModule } from './map-position-selector-routing.module';
 
-import { LocationSelectionPage } from './location-selection.page';
+import { MapPositionSelectorPage } from './map-position-selector.page';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 @NgModule({
@@ -14,10 +14,10 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
     CommonModule,
     FormsModule,
     IonicModule,
-    LocationSelectionPageRoutingModule
+    MapPositionSelectorPageRoutingModule
   ],
-  declarations: [LocationSelectionPage],
+  declarations: [MapPositionSelectorPage],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 
 })
-export class LocationSelectionPageModule {}
+export class MapPositionSelectorPageModule {}
