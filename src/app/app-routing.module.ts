@@ -63,6 +63,10 @@ const routes: Routes = [
     path: 'preferences-selector',
     loadChildren: () => import('./pages/preferences-selector/preferences-selector.module').then( m => m.PreferencesSelectorPageModule)
   },
+  {
+    path: 'other-preferences-selector',
+    loadChildren: () => import('./pages/other-preferences-selector/other-preferences-selector.module').then( m => m.OtherPreferencesSelectorPageModule)
+  },
 ];
 
 @NgModule({

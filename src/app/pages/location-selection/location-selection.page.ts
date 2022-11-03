@@ -121,7 +121,12 @@ export class LocationSelectionPage implements OnInit {
     this.stopTracking();
     this.userSelection = JSON.parse(this.userSelection)
     this.userSelection = Object.assign(this.userSelection, this.userCoordinates)
-    this.routerLink.navigate(['/preferences-selector'], this.userSelection);
+    let dataToPass: any = {
+      queryParams: {
+        time: JSON.stringify(this.userSelection)
+      }
+    };
+    this.routerLink.navigate(['/preferences-selector'], dataToPass);
 
     }
   checkContinue() {

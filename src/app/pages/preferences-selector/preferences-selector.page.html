@@ -1,9 +1,39 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>preferences-selector</ion-title>
+    <ion-title>Preferencias</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-item>
+    <ion-text>
+      Elige los puntos de interés turístico que deseas visitar. ¡Puedes elegir tantos como quieras!
+    </ion-text>
+  </ion-item>
+  <ion-card  class="animate__animated animate__fadeInDown"*ngFor="let preference of preferencesTypes; index as i;"
+  [ngClass]="{ 'use-pink-background': currentPreferencesSelected[i]}"
+  (click)="handleClick(i)">
+    <ion-card-title>
+      <ion-thumbnail>
+        <img alt={{preference.alt}} src={{preference.url}} />
+      </ion-thumbnail>
+      <ion-text>
+        {{preference.name}}
+      </ion-text>
+
+    </ion-card-title>
+  </ion-card>
+  <div class="button-wrapp animate__animated animate__fadeInUp">
+    <ion-button
+    class="continue-button animate__animated animate__fadeInUp"
+    fill="outline"
+    color="#71e7ff"
+   [disabled]="buttonDisabled"
+    (click)="checkSelected()"
+    >
+    Continuar
+      <ion-icon slot="end" name="caret-forward-circle"></ion-icon>
+    </ion-button>
+  </div>
 
 </ion-content>
