@@ -67,6 +67,10 @@ const routes: Routes = [
     path: 'other-preferences-selector',
     loadChildren: () => import('./pages/other-preferences-selector/other-preferences-selector.module').then( m => m.OtherPreferencesSelectorPageModule)
   },
+  {
+    path: 'profile-selector',
+    loadChildren: () => import('./pages/profile-selector/profile-selector.module').then( m => m.ProfileSelectorPageModule)
+  },
 ];
 
 @NgModule({

@@ -1,0 +1,85 @@
+ion-header{
+    --ion-background-color: #FFBE71;
+    text-align: center;
+    ion-title{
+        display: flex;
+        justify-content: center;
+        font-family: serif ;
+        font-size: 20px;
+        font-weight: bold;
+        color: white;
+    }
+    ion-icon {
+        font-size: 32px;
+        margin-right: 10px;
+      }
+
+}
+ion-content{
+    ion-card{
+        --ion-background-color: #FFBE71;
+        ion-card-header{
+            ion-card-title{
+                color: white;
+                text-align: center;
+                font-weight: bold;
+                }
+            ion-card-subtitle{
+                color: white;
+                text-align: center;
+                    }    
+                }
+                ion-card-content{
+                    ion-list{
+                        .buttons-wrap{
+                            ion-item{
+
+                                ion-checkbox{
+                                    --background-checked: #71e7ff;
+                                    margin-top: 0px;
+                                    margin-bottom: 0px;
+                                }
+                                ion-checkbox::part(container) {
+                                    border-radius: 6px;
+                                    border: 2px solid #71e7ff;
+                                  }
+                            }
+                        }
+                        ion-item{
+                            ion-toggle{
+                                height: 8px;
+                                width: 55px;
+                              
+                                padding: 12px;
+                              
+                                --background: #ddd;
+                                --background-checked: #ddd;
+                              
+                                --handle-background: #eb7769;
+                                --handle-background-checked: #71e7ff ;
+                                --handle-max-height: auto;
+                                --handle-spacing: 6px;
+                              
+                                --handle-box-shadow: none;
+                              
+                                /* Required for iOS handle to overflow the height of the track */
+                                overflow: visible;
+                                contain: none;
+                              }
+                        }
+                    }
+            }
+    }   
+    .button-wrapp{
+        width: 100%;
+        justify-content: center;
+        display: flex;
+        .continue-button{
+            color:#71e7ff ;
+            width: 100%;
+            margin-inline: 10px;
+       
+        }
+        
+    }
+}
