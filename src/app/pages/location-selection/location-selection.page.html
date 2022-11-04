@@ -60,3 +60,8 @@
     </ion-item>
 
 </ion-content>
+<ion-popover #popover [isOpen]="isPopOverOpen" (didDismiss)="isPopOverOpen = false">
+  <ng-template>
+    <ion-content class="ion-padding">Ubicación obtenida con éxito</ion-content>
+  </ng-template>
+</ion-popover>

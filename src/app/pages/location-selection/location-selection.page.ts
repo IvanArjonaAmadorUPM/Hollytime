@@ -23,6 +23,8 @@ export class LocationSelectionPage implements OnInit {
   currentPostionSelected = false
   choosePositionSelected = false
 
+  isPopOverOpen = false
+
   userCoordinates={
     "lat": null,
     "long":null,
@@ -111,7 +113,9 @@ export class LocationSelectionPage implements OnInit {
     }
     setTimeout(() => {
       this.loadingCoords = false;
+      this.isPopOverOpen = true
       ; }, 1000);
+      this.isPopOverOpen = false
 
   }
   stopTracking(){
