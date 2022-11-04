@@ -1,9 +1,39 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>profile-selector</ion-title>
+    <ion-title>Perfil</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-item>
+    <ion-text>
+      Las paradas de tu ruta dependerán del perfil de tu visita.
+    </ion-text>
+  </ion-item>
+  <ion-card  class="animate__animated animate__fadeInDown"*ngFor="let profile of profileTypes; index as i;"
+  [ngClass]="{ 'use-pink-background': currentProfile[i]}"
+  (click)="handleClick(i)">
+    <ion-card-title>
+      <ion-thumbnail>
+        <img alt={{profile.alt}} src={{profile.url}} />
+      </ion-thumbnail>
+      <ion-text>
+        {{profile.name}}
+      </ion-text>
+
+    </ion-card-title>
+  </ion-card>
+  <div class="button-wrapp animate__animated animate__fadeInUp">
+    <ion-button
+    class="continue-button animate__animated animate__fadeInUp"
+    fill="outline"
+    color="#71e7ff"
+   [disabled]="buttonDisabled"
+    (click)="checkSelected()"
+    >
+    Continuar
+      <ion-icon slot="end" name="caret-forward-circle"></ion-icon>
+    </ion-button>
+  </div>
 
 </ion-content>
