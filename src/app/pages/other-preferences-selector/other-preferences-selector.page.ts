@@ -30,9 +30,15 @@ export class OtherPreferencesSelectorPage implements OnInit {
   }
   onFoodChange(){
     this.foodSelected = !!!this.foodSelected
+    if(!this.foodSelected){
+      this.foodTypeSelected = []
+    }
   }
   onEventChange(){
     this.eventsSelected = !!!this.eventsSelected
+    if(!this.eventsSelected){
+      this.eventsTypeSelected = []
+    }
   }
   foodStyleSelected(typeSelected){
     if(this.foodTypeSelected.includes(typeSelected)){

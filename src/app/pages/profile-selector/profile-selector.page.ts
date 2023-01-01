@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { ActivatedRoute } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-profile-selector',
@@ -42,17 +44,23 @@ export class ProfileSelectorPage implements OnInit {
 ];
 buttonDisabled = true
 currentProfile = new Array(this.profileTypes.length);
+user
   constructor(
     private router: ActivatedRoute,
+    private readonly auth: AngularFireAuth,
+    private authService: AuthService,
 
   ) { }
   
-  ngOnInit() {
-    
+  async ngOnInit() {
+      this.getUser()
       this.router.queryParams.subscribe(params => {
         this.userSelection = params["time"];
       });
       this.userSelection = JSON.parse(this.userSelection)
+  }
+  async getUser() {
+    this.user = await this.authService.getCurrentUser().then();
   }
 
   handleClick(index: number) {
@@ -76,7 +84,9 @@ currentProfile = new Array(this.profileTypes.length);
     this.getFinalPreferencesSelected()
     this.userSelection = {
       ...this.userSelection,
-      "profiles": this.finalProfileSelected
+      "profiles": this.finalProfileSelected,
+      "userEmail": this.user['email'],
+
     }
     let dataToPass: any = {
       queryParams: {
