@@ -11,6 +11,7 @@ export class OtherPreferencesSelectorPage implements OnInit {
   foodSelected = false
   eventsSelected = false
   userSelection
+  foodHourSelected
   foodTypeSelected = []
   eventsTypeSelected = []
   constructor(
@@ -58,12 +59,18 @@ export class OtherPreferencesSelectorPage implements OnInit {
       this.eventsTypeSelected.push(typeSelected)
     }
   }
+  onHourChanged($event){
+    this.foodHourSelected = $event.detail.value
+    this.foodHourSelected = this.foodHourSelected.slice(11,16)
+    console.log(this.foodHourSelected)
+  }
   checkSelected(){
     this.userSelection = {
       ...this.userSelection,
       "accesible": this.accessSelected,
       "food": this.foodTypeSelected,
-      "events": this.eventsTypeSelected
+      "events": this.eventsTypeSelected,
+      "foodTime":this.foodHourSelected
     }
     let dataToPass: any = {
       queryParams: {

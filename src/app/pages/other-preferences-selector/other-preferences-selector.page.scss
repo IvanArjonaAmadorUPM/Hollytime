@@ -44,6 +44,14 @@ ion-content{
                                     border: 2px solid #71e7ff;
                                   }
                             }
+                            .food-time-wrap{
+                                display: flex;
+                                justify-content: center;
+                                flex-direction: column;
+                                ion-text{
+                                    padding-bottom: 9px;
+                                }
+                            }
                         }
                         ion-item{
                             ion-toggle{
@@ -82,4 +90,8 @@ ion-content{
         }
         
     }
+}
+
+ion-datetime {
+    --background: #FFBE71;
 }
