@@ -5,35 +5,54 @@
 </ion-header>
 
 <ion-content>
-  <ion-item>
-    <ion-text>
-      Las paradas de tu ruta dependerán del perfil de tu visita.
-    </ion-text>
-  </ion-item>
-  <ion-card  class="animate__animated animate__fadeInDown"*ngFor="let profile of profileTypes; index as i;"
-  [ngClass]="{ 'use-pink-background': currentProfile[i]}"
-  (click)="handleClick(i)">
-    <ion-card-title>
-      <ion-thumbnail>
-        <img alt={{profile.alt}} src={{profile.url}} />
-      </ion-thumbnail>
+  <div *ngIf="!loading">
+    <ion-item>
       <ion-text>
-        {{profile.name}}
+        Las paradas de tu ruta dependerán del perfil de tu visita.
       </ion-text>
+    </ion-item>
+    <ion-card  class="animate__animated animate__fadeInDown"*ngFor="let profile of profileTypes; index as i;"
+    [ngClass]="{ 'use-pink-background': currentProfile[i]}"
+    (click)="handleClick(i)">
+      <ion-card-title>
+        <ion-thumbnail>
+          <img alt={{profile.alt}} src={{profile.url}} />
+        </ion-thumbnail>
+        <ion-text>
+          {{profile.name}}
+        </ion-text>
+  
+      </ion-card-title>
+    </ion-card>
+    <div class="button-wrapp animate__animated animate__fadeInUp">
+      <ion-button
+      class="continue-button animate__animated animate__fadeInUp"
+      fill="outline"
+      color="#71e7ff"
+     [disabled]="buttonDisabled"
+      (click)="checkSelected()"
+      >
+      Continuar
+        <ion-icon slot="end" name="caret-forward-circle"></ion-icon>
+      </ion-button>
+    </div>
 
-    </ion-card-title>
-  </ion-card>
-  <div class="button-wrapp animate__animated animate__fadeInUp">
-    <ion-button
-    class="continue-button animate__animated animate__fadeInUp"
-    fill="outline"
-    color="#71e7ff"
-   [disabled]="buttonDisabled"
-    (click)="checkSelected()"
-    >
-    Continuar
-      <ion-icon slot="end" name="caret-forward-circle"></ion-icon>
-    </ion-button>
   </div>
+  <div *ngIf="loading"  lines="none">
+    <div class="spinner-wrapp">
 
+      <ion-text>Calculando tu ruta</ion-text>
+      <ion-spinner name="lines-sharp"></ion-spinner>
+    </div>
+  </div>
 </ion-content>
+
+<ion-popover #popover [isOpen]="isPopOverOpen" (didDismiss)="popOverDismiss()">
+  <ng-template>
+    <ion-content class="ion-padding">
+      <ion-text>
+        {{resultText}}
+      </ion-text>
+    </ion-content>
+  </ng-template>
+</ion-popover>

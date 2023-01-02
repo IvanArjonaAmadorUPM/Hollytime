@@ -69,4 +69,24 @@ ion-content{
         transition: background-color 1s ease-out;        
         background-color: #FFBE71;        
       }
+
+        .spinner-wrapp{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            margin-top: 50%;
+
+            ion-spinner{
+                color: #FFBE71;
+                width: 100% !important;
+                height: 200px !important;
+            }
+            ion-text{
+                text-align: center;
+                font-family: serif ;
+                font-size: 20px;
+                font-weight: bold;
+                padding-bottom: 20px;
+            }
+        }
 }

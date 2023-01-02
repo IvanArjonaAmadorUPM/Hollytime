@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -9,6 +9,10 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./profile-selector.page.scss'],
 })
 export class ProfileSelectorPage implements OnInit {
+  loading = false
+  isPopOverOpen = false
+  resultText
+  response
   userSelection
   finalProfileSelected = []
   profileTypes=[{
@@ -49,6 +53,8 @@ user
     private router: ActivatedRoute,
     private readonly auth: AngularFireAuth,
     private authService: AuthService,
+    private routerToHome: Router,
+
 
   ) { }
   
@@ -85,13 +91,15 @@ user
     this.userSelection = {
       ...this.userSelection,
       "profiles": this.finalProfileSelected,
-      "userEmail": this.user['email'],
+      "userEmail": this.user['email']
 
     }
     this.makeRequest(this.userSelection);
   }
 
   makeRequest(userSelection) {
+    this.loading=true;
+
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -99,8 +107,18 @@ user
     };
     console.log(requestOptions)
     console.log(userSelection)
-    fetch('http://localhost:8080/api/getRoute', requestOptions)
-      .then(response => console.log("response" , response.json()))
+      fetch('http://localhost:8080/api/getRoute', requestOptions)
+      .then((response) => response.json())
+      .then((data) => {
+        this.resultText="Ruta obtenida con éxito. Podrás ver tu ruta en el apartado 'Mis rutas' "
+        this.loading = false
+        this.isPopOverOpen = true
+      })
+      .catch((error) => {
+        this.resultText="Ha habido un error, inténtelo más tarde"
+        this.loading = false
+        this.isPopOverOpen = true
+      });
   }
 
   getFinalPreferencesSelected() {
@@ -109,5 +127,10 @@ user
         this.finalProfileSelected.push(this.profileTypes[index].name)
       }
     })
+  }
+
+  popOverDismiss(){
+    this.isPopOverOpen = false
+    this.routerToHome.navigate(['/home'])
   }
 }
