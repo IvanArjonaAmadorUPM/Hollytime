@@ -26,8 +26,8 @@ export class LocationSelectionPage implements OnInit {
   isPopOverOpen = false
 
   userCoordinates={
-    "lat": null,
-    "long":null,
+    "latitude": null,
+    "longitude":null,
   }
     printCurrentPosition
 
@@ -108,8 +108,8 @@ export class LocationSelectionPage implements OnInit {
   }
   addLocation(latitude: number, longitude: number) {
     this.userCoordinates={
-      "lat":latitude,
-      "long":longitude,
+      "latitude":latitude,
+      "longitude":longitude,
     }
     setTimeout(() => {
       this.loadingCoords = false;
@@ -134,6 +134,6 @@ export class LocationSelectionPage implements OnInit {
 
     }
   checkContinue() {
-    return !(this.userCoordinates &&this.userCoordinates.lat &&this.userCoordinates.long )
+    return !(this.userCoordinates &&this.userCoordinates.latitude &&this.userCoordinates.longitude )
     }
 }

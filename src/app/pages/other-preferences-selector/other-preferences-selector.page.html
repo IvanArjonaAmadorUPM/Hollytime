@@ -67,7 +67,7 @@
               Elige la hora a partir de la cual deseas comer.
             </ion-text>
             <ion-datetime-button 
-            datetime="datetime"
+            datetime="datetime1"
             color="success">
             </ion-datetime-button>
           </div>
@@ -121,7 +121,6 @@
     class="continue-button animate__animated animate__fadeInUp"
     fill="outline"
     color="#71e7ff"
-
     (click)="checkSelected()"
     >
     Continuar
@@ -160,14 +159,12 @@
 <ion-modal [keepContentsMounted]="true">
   <ng-template>
     <ion-datetime 
-    id="datetime"
+    id="datetime1"
     presentation="time"
     minuteValues="0,15,30,45"
     hourValues="8,9,10,11,12,13,14,15,16,17,18,19,20,21,22"
     (ionChange)="onHourChanged($event)"
-    [showDefaultButtons]="true"
-    cancelText="Cancelar"
-    doneText="Confirmar"
+    [showDefaultButtons]="false"
     ></ion-datetime>  
   </ng-template>
 </ion-modal>

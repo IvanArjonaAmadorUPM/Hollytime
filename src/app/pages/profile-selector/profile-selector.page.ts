@@ -88,12 +88,19 @@ user
       "userEmail": this.user['email'],
 
     }
-    let dataToPass: any = {
-      queryParams: {
-        time: JSON.stringify(this.userSelection)
-      }
+    this.makeRequest(this.userSelection);
+  }
+
+  makeRequest(userSelection) {
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(userSelection)
     };
-    console.log(this.userSelection)
+    console.log(requestOptions)
+    console.log(userSelection)
+    fetch('http://localhost:8080/api/getRoute', requestOptions)
+      .then(response => console.log("response" , response.json()))
   }
 
   getFinalPreferencesSelected() {

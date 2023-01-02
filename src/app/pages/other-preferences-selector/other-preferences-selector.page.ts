@@ -11,7 +11,7 @@ export class OtherPreferencesSelectorPage implements OnInit {
   foodSelected = false
   eventsSelected = false
   userSelection
-  foodHourSelected
+  foodHourSelected = null;
   foodTypeSelected = []
   eventsTypeSelected = []
   constructor(
@@ -70,7 +70,7 @@ export class OtherPreferencesSelectorPage implements OnInit {
       "accesible": this.accessSelected,
       "food": this.foodTypeSelected,
       "events": this.eventsTypeSelected,
-      "foodTime":this.foodHourSelected
+      "foodHour":this.foodHourSelected
     }
     let dataToPass: any = {
       queryParams: {
@@ -79,5 +79,4 @@ export class OtherPreferencesSelectorPage implements OnInit {
     };
     this.routerLink.navigate(['/profile-selector'], dataToPass);
   }
-  
 }
