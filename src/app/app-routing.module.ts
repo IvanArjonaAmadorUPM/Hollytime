@@ -71,6 +71,10 @@ const routes: Routes = [
     path: 'profile-selector',
     loadChildren: () => import('./pages/profile-selector/profile-selector.module').then( m => m.ProfileSelectorPageModule)
   },
+  {
+    path: 'routes',
+    loadChildren: () => import('./pages/routes/routes.module').then( m => m.RoutesPageModule)
+  },
 ];
 
 @NgModule({

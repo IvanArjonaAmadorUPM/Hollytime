@@ -33,6 +33,9 @@ export class HomePage implements OnInit {
   onNewRouteClick(){
     this.router.navigate(['/time-selector'])
   }
+  onRoutesClick(){
+    this.router.navigate(['/routes'])
+  }
   getBackGroundColor(name){
     if(name=="eventos")
       return '#3e76de'
