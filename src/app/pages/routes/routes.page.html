@@ -9,5 +9,94 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
+  <div class="wrap" *ngIf="!areRoutes">
+    <ion-card  class="animate__animated animate__fadeInUp">
+      <ion-card-header>
+        <ion-card-title>
+          <ion-text>
+            No tienes rutas creadas
+          </ion-text>
+        </ion-card-title>
+        <ion-card-subtitle>
+          <div>
+            ¿Por qué no creas una ruta?
+          </div>
+        </ion-card-subtitle>      
+      </ion-card-header>
+      <ion-card-content>
+        <div class="button-wrapp animate__animated animate__fadeInUp">
+          <ion-button
+          class="continue-button animate__animated animate__fadeInUp"
+          fill="outline"
+          color="#71e7ff"
+          (click)="goToCreateRoute()"
+          >
+          Crear ruta
+            <ion-icon slot="end" name="caret-forward-circle"></ion-icon>
+          </ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  <div class="wrap" *ngIf="areRoutes">
+    <ion-card class="animate__animated animate__fadeInUp" *ngFor="let route of routesList ">
+      <ion-card-header>
+        <ion-card-title>
+          <ion-text>
+            Tu ruta del día
+          </ion-text>
+          <ion-text class="date">
+            {{route.ant.day}}
+          </ion-text>
+        </ion-card-title>
+        <ion-card-subtitle>
+          <div>
+            <ion-icon name="time"></ion-icon>
+            <ion-text>
+              {{route.ant.hour}}
+            </ion-text>
+          </div>
+          <div>
+            <ion-icon name="hourglass"></ion-icon>
+            <ion-text>
+              {{route.ant.time}} horas
+            </ion-text> 
+          </div>
+        </ion-card-subtitle>
+        <ion-card-content>
+          <div class="user-preferences">
+            <ion-icon name="accessibility" [ngStyle]="{'color':getAccessColor(route.ant.accesible)}"></ion-icon>
+            <ion-icon name="restaurant" [ngStyle]="{'color':getIconColor(route.ant.food)}"></ion-icon>
+            <ion-icon name="star" [ngStyle]="{'color':getIconColor(route.ant.events)}"></ion-icon>  
+          </div>
+          <div class="info-wrap">
+            <ion-item lines="none">
+              <ion-icon name="walk"></ion-icon>
+              <ion-text>
+                {{getTime(route) }} km
+              </ion-text>
+            </ion-item>        
+            <ion-item lines="none" class="stops">
+              <ion-icon name="home"></ion-icon>
+              <ion-text class="stops-info">
+                {{getStops(route)}}  paradas
+              </ion-text>
+            </ion-item>     
+          </div>
+          <div class="button-wrapp animate__animated animate__fadeInUp">
+            <ion-button
+            class="continue-button animate__animated animate__fadeInUp"
+            fill="outline"
+            color="#71e7ff"
+            (click)="seeRoute(route)"
+            >
+            Ver Ruta
+              <ion-icon slot="end" name="caret-forward-circle"></ion-icon>
+            </ion-button>
+          </div>
+        </ion-card-content>
 
+      </ion-card-header>
+    </ion-card>
+  </div>
 </ion-content>
