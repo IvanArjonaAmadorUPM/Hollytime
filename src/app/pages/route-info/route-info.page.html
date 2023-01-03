@@ -1,0 +1,59 @@
+<ion-content>
+  <ion-item class="introduction">
+    <ion-text>
+      Esta es tu ruta personalizada ¡Disfrutala!
+    </ion-text>
+  </ion-item>
+  <div class="wrapp">
+    <div class="info-wrapp" *ngFor="let stop of stops | keyvalue; let i=index">
+      <ion-item class="move-wrapp">
+        <div class="in-wrapper">
+          <ion-text> 
+            <ion-icon name="time"></ion-icon>
+            {{this.movements[i].time}} minutos
+          </ion-text>
+          <ion-text> 
+            <ion-icon name="walk"></ion-icon>
+            {{this.movements[i].distance}} kilometros 
+          </ion-text>
+         </div>
+      </ion-item>
+
+      <ion-item class="pit-wrap"(click)="getPitInfo(stop)">
+        <ion-avatar slot="start">
+          <img alt="Imagen Pit" src="{{getImage(stop)}}" />
+        </ion-avatar>
+        <div>
+          <ion-label>{{stops[i].name}}</ion-label>
+          <div class="time-wrap">
+            <ion-text>
+              <ion-icon name="cash"></ion-icon>
+              {{stops[i].price}}
+            </ion-text>
+            <ion-text>
+              <ion-icon name="arrow-redo"></ion-icon>
+               {{stops[i].startTime}}
+            </ion-text>
+            <ion-text>
+              <ion-icon name="arrow-undo"></ion-icon> 
+              {{stops[i].finishTime}}
+            </ion-text>
+          </div>
+        </div>
+      </ion-item>
+      <div class="arrow">
+        <ion-icon name="arrow-down-outline"></ion-icon>
+      </div>
+    </div>
+  </div>
+  <ion-item class="finish">
+    <div class="finish-text-wrapper">
+      <ion-text>
+        Aquí finaliza tu ruta
+      </ion-text>
+      <ion-text>
+        Si te has quedado con ganas de más, prueba a crear otra ruta con otras preferencias
+      </ion-text>
+    </div>
+  </ion-item>
+</ion-content>

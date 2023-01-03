@@ -39,6 +39,25 @@
     </ion-card>
   </div>
   <div class="wrap" *ngIf="areRoutes">
+    <ion-card class="animate__animated animate__fadeInUp">
+      <ion-card-header>
+        <ion-card-title>
+          Actualmente tienes:
+        </ion-card-title>
+        <ion-card-subtitle>
+          {{numRutas}} rutas
+        </ion-card-subtitle>
+        <ion-card-content class="comment">
+          <ion-text *ngIf="numRutas>5">
+            Estás en racha. ¡Sigue así!
+          </ion-text>
+          <ion-text *ngIf="numRutas<=5">
+            ¿Por qué no creas una nueva ruta?
+        </ion-text>
+        </ion-card-content>
+      </ion-card-header>
+    </ion-card>
+
     <ion-card class="animate__animated animate__fadeInUp" *ngFor="let route of routesList ">
       <ion-card-header>
         <ion-card-title>

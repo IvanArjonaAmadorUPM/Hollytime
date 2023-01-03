@@ -98,6 +98,7 @@ user
   }
 
   makeRequest(userSelection) {
+    let serverurl = 'http://localhost:8080/api/getRoute'
     this.loading=true;
 
     const requestOptions = {
@@ -107,7 +108,7 @@ user
     };
     console.log(requestOptions)
     console.log(userSelection)
-      fetch('http://localhost:8080/api/getRoute', requestOptions)
+      fetch(serverurl, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         this.resultText="Ruta obtenida con éxito. Podrás ver tu ruta en el apartado 'Mis rutas' "
