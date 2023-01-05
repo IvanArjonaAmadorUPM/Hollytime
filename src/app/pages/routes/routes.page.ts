@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { DataService } from 'src/app/services/data.service';
+import { RouteInfoPage } from '../route-info/route-info.page';
 
 @Component({
   selector: 'app-routes',
@@ -13,6 +14,7 @@ export class RoutesPage implements OnInit {
   areRoutes = false
   data
   routesList
+  numRutas
   constructor(
     private modalCtrl: ModalController,
     public dataService: DataService,
@@ -30,6 +32,7 @@ export class RoutesPage implements OnInit {
     })
     this.routesList = this.routesList.reverse()
     console.log(this.routesList)
+    this.numRutas = Object.keys(this.routesList).length;
     this.checkIfRoutes()
   }
   checkIfRoutes() {
@@ -58,8 +61,20 @@ export class RoutesPage implements OnInit {
         return 'green'
       }else return 'red'
     }
-    seeRoute(route){
-      console.log(route)
+    async seeRoute(route){
+      const modal = await this.modalCtrl.create({
+        component: RouteInfoPage, // abre un componente en un modal
+        cssClass: 'cal-modal',
+        backdropDismiss: true,
+        componentProps: { route }
+
+      });
+      modal.present();
+      const { data, role } = await modal.onWillDismiss();
+      if(role ==="confirm"){
+        console.log(confirm)
+      }
+  
     }
     goToCreateRoute(){
       this.router.navigate(['/time-selector'])

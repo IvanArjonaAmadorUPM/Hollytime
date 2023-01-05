@@ -24,7 +24,7 @@ export class LocationSelectionPage implements OnInit {
   choosePositionSelected = false
 
   isPopOverOpen = false
-
+  hasPopOverShown = false
   userCoordinates={
     "latitude": null,
     "longitude":null,
@@ -113,10 +113,10 @@ export class LocationSelectionPage implements OnInit {
     }
     setTimeout(() => {
       this.loadingCoords = false;
-      this.isPopOverOpen = true
+      if(!this.isPopOverOpen && !this.hasPopOverShown){
+        this.isPopOverOpen = true
+      }
       ; }, 1000);
-      this.isPopOverOpen = false
-
   }
   stopTracking(){
     Geolocation.clearWatch({id: this.printCurrentPosition})
